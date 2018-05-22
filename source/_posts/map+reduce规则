@@ -1,0 +1,23 @@
+---
+title: map+reduce规则
+date: 2018-05-18 12:54:22
+tags:
+- hadoop    
+- map、reduce规则  
+category: hadoop
+---
+1.map处理的是键值对<key, value>。  
+2. *`哪个key到哪个Reducer的分配过程，是由Partitioner规定的`* 。  
+3.系统缺省的Partitioner是HashPartitioner，它以key的Hash值对Reducer的数目取模，得到对应的Reducer。*`这样保证如果有相同的key值，肯定被分配到同一个reducre上。如果有N个reducer，编号就为0,1,2,3……(N-1)`* .  
+其他的还有：  
+>-partitioner com.baidu.sos.mapred.lib.IntHashPartitioner \    #map输出格式是：int（一个数字）空格 key \t value  
+int（一个数字）：根据某种规则计算出来，例如设置reduce的总数为5000个，则可以使用key%sum得到这个int。  
+
+reduce阶段：读取到map输出之后，要进行处理，才能得到真正的key和value。  
+4.reduce规则  
+reduce过程如果什么都不做，而是直接将map的结果输出，则可以在run.sh中设置：  
+![](/images/hadoop/hadoop-01.png)  
+
+
+
+
