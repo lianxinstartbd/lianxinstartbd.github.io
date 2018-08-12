@@ -39,15 +39,15 @@ ERROR Try running: 'npm install hexo —save'
 + public目录也正确生成了。   
 *`切记`* ：图片存放位置是hexo分支下的source/images中，执行hexo g之后，会自动存放到public下，在执行hexo d，会把public目录上传到git的master分支。
 + 最后在hexo分支下，上传source下新增的文件，也就是保存blog的源文件。   
-所以，总结上述过程，更换电脑之后，只需要在一个目录下，操作两个步骤：
+### 所以，总结上述过程，  
+ 更换电脑之后，只需要在一个目录下，操作几个步骤：
 + git clone，并且切换到hexo分支。
-+ 依次执行下列指令：  
-npm install hexo  
-
-npm install、npm  
-install hexo-deployer-git（记得，不需要hexo init这条指令）
-
-## 2. 开发环境配置
++ npm install hexo  
++ 写blog
++ hexo g； hexo s，本地看效果
++ push修改到hexo， hexo d：部署到master   
+//npm install：安装所有组件。    
+//install hexo-deployer-git（记得，不需要hexo init这条指令）
 
 ## 3. 必备软件
 + git
@@ -60,4 +60,3 @@ install hexo-deployer-git（记得，不需要hexo init这条指令）
 + securecrt
 + beyond compare
 + postman
-+ 
