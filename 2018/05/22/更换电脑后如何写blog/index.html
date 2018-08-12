@@ -88,7 +88,7 @@
 <meta property="og:description" content="1. 更换电脑后，如何更快的搭建好环境，直接写blog？参考知乎上的教程，有两种方案：    方案一：代码分为源文件和生成的静态文件。所有文件公用一个github的repo，创建分支 hexo 。&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;源文件也就是source、theme、db和配置文件等，提交到分支 hexo 上。&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;静态文件也就是最后生">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/images/machine.png">
-<meta property="og:updated_time" content="2018-08-12T11:49:33.000Z">
+<meta property="og:updated_time" content="2018-08-12T11:57:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="更换电脑后如何写blog">
 <meta name="twitter:description" content="1. 更换电脑后，如何更快的搭建好环境，直接写blog？参考知乎上的教程，有两种方案：    方案一：代码分为源文件和生成的静态文件。所有文件公用一个github的repo，创建分支 hexo 。&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;源文件也就是source、theme、db和配置文件等，提交到分支 hexo 上。&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;静态文件也就是最后生">
@@ -372,12 +372,14 @@
 </li>
 <li>再次执行hexo g，hexo s，能够正常访问本地blog。</li>
 <li>public目录也正确生成了。<br><em><code>切记</code></em> ：图片存放位置是hexo分支下的source/images中，执行hexo g之后，会自动存放到public下，在执行hexo d，会把public目录上传到git的master分支。</li>
-<li>最后在hexo分支下，上传source下新增的文件，也就是保存blog的源文件。<br>所以，总结上述过程，更换电脑之后，只需要在一个目录下，操作两个步骤：</li>
+<li>最后在hexo分支下，上传source下新增的文件，也就是保存blog的源文件。   <h3 id="所以，总结上述过程，"><a href="#所以，总结上述过程，" class="headerlink" title="所以，总结上述过程，"></a>所以，总结上述过程，</h3>更换电脑之后，只需要在一个目录下，操作几个步骤：</li>
 <li>git clone，并且切换到hexo分支。</li>
-<li>依次执行下列指令：<br>npm install hexo  </li>
+<li>npm install hexo  </li>
+<li>写blog</li>
+<li>hexo g； hexo s，本地看效果</li>
+<li>push修改到hexo， hexo d：部署到master<br>//npm install：安装所有组件。<br>//install hexo-deployer-git（记得，不需要hexo init这条指令）</li>
 </ul>
-<p>npm install、npm<br>install hexo-deployer-git（记得，不需要hexo init这条指令）</p>
-<h2 id="2-开发环境配置"><a href="#2-开发环境配置" class="headerlink" title="2. 开发环境配置"></a>2. 开发环境配置</h2><h2 id="3-必备软件"><a href="#3-必备软件" class="headerlink" title="3. 必备软件"></a>3. 必备软件</h2><ul>
+<h2 id="3-必备软件"><a href="#3-必备软件" class="headerlink" title="3. 必备软件"></a>3. 必备软件</h2><ul>
 <li>git</li>
 <li>chrome</li>
 <li>xmind</li>
@@ -388,7 +390,6 @@
 <li>securecrt</li>
 <li>beyond compare</li>
 <li>postman</li>
-<li></li>
 </ul>
 
       
@@ -564,7 +565,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-更换电脑后，如何更快的搭建好环境，直接写blog？"><span class="nav-number">1.</span> <span class="nav-text">1. 更换电脑后，如何更快的搭建好环境，直接写blog？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-继续写blog的最佳实践"><span class="nav-number">2.</span> <span class="nav-text">2. 继续写blog的最佳实践</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-开发环境配置"><span class="nav-number">3.</span> <span class="nav-text">2. 开发环境配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-必备软件"><span class="nav-number">4.</span> <span class="nav-text">3. 必备软件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-更换电脑后，如何更快的搭建好环境，直接写blog？"><span class="nav-number">1.</span> <span class="nav-text">1. 更换电脑后，如何更快的搭建好环境，直接写blog？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-继续写blog的最佳实践"><span class="nav-number">2.</span> <span class="nav-text">2. 继续写blog的最佳实践</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#所以，总结上述过程，"><span class="nav-number">2.1.</span> <span class="nav-text">所以，总结上述过程，</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-必备软件"><span class="nav-number">3.</span> <span class="nav-text">3. 必备软件</span></a></li></ol></div>
             
 
           </div>
