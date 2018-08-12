@@ -1,7 +1,7 @@
 ---
-title: 更换电脑后配置
+title: 更换电脑后如何写blog
 tags:
-  - null
+  - 更换电脑 hexo
 date: 2018-05-22 15:24:31
 category: next
 ---
