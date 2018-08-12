@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="https,数字证书," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="下载安装openssl，进入/bin/下面，执行命令（把ssl目录下的openssl.cnf 拷贝到bin目录下） 1.首先要生成服务器端的私钥(key文件): openssl genrsa -des3 -out server.key 1024[root@airwaySSL openssl]# cd ssl/[root@airwaySSL ssl]# pwd/home/openssl/ssl[ro">
+<meta name="keywords" content="https,数字证书">
+<meta property="og:type" content="article">
+<meta property="og:title" content="https以及数字证书学习">
+<meta property="og:url" content="http://yoursite.com/2018/05/16/https以及数字证书学习/index.html">
+<meta property="og:site_name" content="不忘初心">
+<meta property="og:description" content="下载安装openssl，进入/bin/下面，执行命令（把ssl目录下的openssl.cnf 拷贝到bin目录下） 1.首先要生成服务器端的私钥(key文件): openssl genrsa -des3 -out server.key 1024[root@airwaySSL openssl]# cd ssl/[root@airwaySSL ssl]# pwd/home/openssl/ssl[ro">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-12T10:57:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="https以及数字证书学习">
+<meta name="twitter:description" content="下载安装openssl，进入/bin/下面，执行命令（把ssl目录下的openssl.cnf 拷贝到bin目录下） 1.首先要生成服务器端的私钥(key文件): openssl genrsa -des3 -out server.key 1024[root@airwaySSL openssl]# cd ssl/[root@airwaySSL ssl]# pwd/home/openssl/ssl[ro">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/16/https以及数字证书学习/"/>
+
+
+
+
+
+  <title>https以及数字证书学习 | 不忘初心</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">不忘初心</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/16/https以及数字证书学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="oopscooper">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="不忘初心">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">https以及数字证书学习</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-16T08:28:55+08:00">
+                2018-05-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/http/" itemprop="url" rel="index">
+                    <span itemprop="name">http</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>下载安装openssl，进入/bin/下面，执行命令（把ssl目录下的openssl.cnf 拷贝到bin目录下）</p>
+<h2 id="1-首先要生成服务器端的私钥-key文件"><a href="#1-首先要生成服务器端的私钥-key文件" class="headerlink" title="1.首先要生成服务器端的私钥(key文件):"></a>1.首先要生成服务器端的私钥(key文件):</h2><blockquote>
+<p>openssl genrsa -des3 -out server.key 1024<br>[root@airwaySSL openssl]# cd ssl/<br>[root@airwaySSL ssl]# pwd<br>/home/openssl/ssl<br>[root@airwaySSL ssl]# ls<br>certs  man  misc  openssl.cnf  private  server.csr  server.key  </p>
+</blockquote>
+<p>运行时会提示输入密码,此密码用于加密key文件(参数des3便是指加密算法,当然也可以选用其他你认为安全的算法.),以后每当需读取此文件(通过openssl提供的命令或API)都需输入口令.如果觉得不方便,也可以去除这个口令,但一定要采取其他的保护措施!<br>去除key文件口令的命令:  </p>
+<blockquote>
+<p>openssl rsa -in server.key -out server.key  </p>
+</blockquote>
+<h2 id="2-openssl-req-new-key-server-key-out-server-csr-config-openssl-cnf"><a href="#2-openssl-req-new-key-server-key-out-server-csr-config-openssl-cnf" class="headerlink" title="2.openssl req -new -key server.key -out server.csr -config openssl.cnf"></a>2.openssl req -new -key server.key -out server.csr -config openssl.cnf</h2><blockquote>
+<p>[root@airwaySSL bin]# openssl req -new -key server.key -out server.csr -config  openssl.cnf<br>Enter pass phrase for server.key:12345<br>You are about to be asked to enter information that will be incorporated<br>into your certificate request.<br>What you are about to enter is what is called a Distinguished Name or a DN.<br>There are quite a few fields but you can leave some blank<br>For some fields there will be a default value,<br>If you enter ‘.’, the field will be left blank.<br>……<br>Country Name (2 letter code) [AU]:CN<br>State or Province Name (full name) [Some-State]:china<br>Locality Name (eg, city) []:wuhan<br>Organization Name (eg, company) [Internet Widgits Pty Ltd]:airway<br>Organizational Unit Name (eg, section) []:airway<br>Common Name (eg, YOUR name) []:airway<br>Email Address []:<br>Please enter the following ‘extra’ attributes<br>to be sent with your certificate request<br>A challenge password []:<br>An optional company name []:  </p>
+</blockquote>
+<p>生成Certificate Signing Request（CSR）,生成的csr文件交给CA签名后形成服务端自己的证书.屏幕上将有提示,依照其指示一步一步输入要求的个人信息即可.<br>3.对客户端也作同样的命令生成key及csr文件:</p>
+<p>openssl genrsa -des3 -out client.key 1024</p>
+<p>Generating RSA private key, 1024 bit long modulus</p>
+<p>………..++++++</p>
+<p>..++++++</p>
+<p>e is 65537 (0x10001)</p>
+<p>Enter pass phrase for client.key:12345</p>
+<p>Verifying - Enter pass phrase for client.key:12345</p>
+<p>openssl req -new -key client.key -out client.csr -config openssl.cnf</p>
+<p>[root@airwaySSL bin]# openssl req -new -key client.key -out client.csr -config openssl.cnf</p>
+<p>Enter pass phrase for client.key:12345</p>
+<p>You are about to be asked to enter information that will be incorporated</p>
+<p>into your certificate request.</p>
+<p>What you are about to enter is what is called a Distinguished Name or a DN.</p>
+<p>There are quite a few fields but you can leave some blank</p>
+<p>For some fields there will be a default value,</p>
+<p>If you enter ‘.’, the field will be left blank.</p>
+<hr>
+<p>Country Name (2 letter code) [AU]:cn</p>
+<p>State or Province Name (full name) [Some-State]:china</p>
+<p>Locality Name (eg, city) []:wuhan</p>
+<p>Organization Name (eg, company) [Internet Widgits Pty Ltd]:airway</p>
+<p>Organizational Unit Name (eg, section) []:airway</p>
+<p>Common Name (eg, YOUR name) []:airway</p>
+<p>Email Address []:</p>
+<p>Please enter the following ‘extra’ attributes</p>
+<p>to be sent with your certificate request</p>
+<p>A challenge password []:</p>
+<p>An optional company name []:</p>
+<p>4.CSR文件必须有CA的签名才可形成证书.可将此文件发送到verisign等地方由它验证,要交一大笔钱,何不自己做CA呢.</p>
+<p>openssl req -new -x509 -keyout ca.key -out ca.crt -config openssl.cnf</p>
+<p>[root@airwaySSL bin]# openssl req -new -x509 -keyout ca.key -out ca.crt -config openssl.cnf</p>
+<p>Generating a 1024 bit RSA private key</p>
+<p>…++++++</p>
+<p>……………….++++++</p>
+<p>writing new private key to ‘ca.key’</p>
+<p>Enter PEM pass phrase:12345</p>
+<p>Verifying - Enter PEM pass phrase:</p>
+<hr>
+<p>You are about to be asked to enter information that will be incorporated</p>
+<p>into your certificate request.</p>
+<p>What you are about to enter is what is called a Distinguished Name or a DN.</p>
+<p>There are quite a few fields but you can leave some blank</p>
+<p>For some fields there will be a default value,</p>
+<p>If you enter ‘.’, the field will be left blank.</p>
+<hr>
+<p>Country Name (2 letter code) [AU]:CN</p>
+<p>State or Province Name (full name) [Some-State]:china</p>
+<p>Locality Name (eg, city) []:wuhan</p>
+<p>Organization Name (eg, company) [Internet Widgits Pty Ltd]:airway</p>
+<p>Organizational Unit Name (eg, section) []:airway</p>
+<p>Common Name (eg, YOUR name) []:airway</p>
+<p>Email Address []:</p>
+<p>在继续下面操作前，将openssl.conf文件打开，查看其dir路径将其修改为dir =/home/openssl/bin/demoCA /，否则下面的步骤会提示路径无法找到。</p>
+<p>　　自己手动创建一个CA目录结构：<br>　　[weigw@TEST bin]$ mkdir ./demoCA<br>　　[weigw@TEST bin]$ mkdir demoCA/newcerts<br>　　创建个空文件：<br>　　[weigw@TEST bin]$ vi demoCA/index.txt<br>　　向文件中写入01：<br>　　[weigw@TEST bin]$ vi demoCA/serial</p>
+<p>5.用生成的CA的证书为刚才生成的server.csr,client.csr文件签名:</p>
+<p>openssl ca -in server.csr -out server.crt -cert ca.crt -keyfile ca.key -config openssl.cnf</p>
+<p>[root@airwaySSL bin]# openssl ca -in server.csr -out server.crt -cert ca.crt -keyfile ca.key -config openssl.cnf</p>
+<p>Using configuration from openssl.cnf</p>
+<p>Enter pass phrase for ca.key:</p>
+<p>Check that the request matches the signature</p>
+<p>Signature ok</p>
+<p>Certificate Details:</p>
+<pre><code>Serial Number: 1 (0x1)
+
+Validity
+
+    Not Before: Feb 26 04:15:02 2009 GMT
+
+    Not After : Feb 26 04:15:02 2010 GMT
+
+Subject:
+
+    countryName               = CN
+
+    stateOrProvinceName       = china
+
+    organizationName          = airway
+
+    organizationalUnitName    = airway
+
+    commonName                = airway
+
+X509v3 extensions:
+
+    X509v3 Basic Constraints:
+
+    CA:FALSE
+
+    Netscape Comment:
+
+    OpenSSL Generated Certificate
+
+    X509v3 Subject Key Identifier:
+
+    30:70:D2:EB:9B:73:AE:7B:0E:8E:F6:94:33:7C:53:5B:EF:93:FC:38
+
+    X509v3 Authority Key Identifier:
+
+    keyid:DB:D6:83:BB:7F:28:C2:A9:40:6A:D8:32:FC:01:E0:5C:48:27:51:19
+</code></pre><p>Certificate is to be certified until Feb 26 04:15:02 2010 GMT (365 days)</p>
+<p>Sign the certificate? [y/n]:y</p>
+<p>1 out of 1 certificate requests certified, commit? [y/n]y</p>
+<p>Write out database with 1 new entries</p>
+<p>Data Base Updated</p>
+<p>openssl ca -in client.csr -out client.crt -cert ca.crt -keyfile ca.key -config openssl.cnf</p>
+<p>[root@airwaySSL bin]# openssl ca -in client.csr -out client.crt -cert ca.crt -keyfile ca.key -config openssl.cnf</p>
+<p>Using configuration from openssl.cnf</p>
+<p>Enter pass phrase for ca.key:</p>
+<p>Check that the request matches the signature</p>
+<p>Signature ok</p>
+<p>The countryName field needed to be the same in the</p>
+<p>CA certificate (CN) and the request (cn)</p>
+<p>现在我们所需的全部文件便生成了.</p>
+<p>另：</p>
+<p>client使用的文件有：ca.crt,client.crt,client.key</p>
+<p>server使用的文件有：ca.crt,server.crt,server.key</p>
+<p>查看证书的内容：openssl x509 -in server.crt -text -noout</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/https/" rel="tag"># https</a>
+          
+            <a href="/tags/数字证书/" rel="tag"># 数字证书</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/16/web开发中几种常用编码方式/" rel="next" title="web开发中几种常用编码方式">
+                <i class="fa fa-chevron-left"></i> web开发中几种常用编码方式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/16/02远程仓库/" rel="prev" title="02远程仓库">
+                02远程仓库 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">oopscooper</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">63</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-首先要生成服务器端的私钥-key文件"><span class="nav-number">1.</span> <span class="nav-text">1.首先要生成服务器端的私钥(key文件):</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-openssl-req-new-key-server-key-out-server-csr-config-openssl-cnf"><span class="nav-number">2.</span> <span class="nav-text">2.openssl req -new -key server.key -out server.csr -config openssl.cnf</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">oopscooper</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

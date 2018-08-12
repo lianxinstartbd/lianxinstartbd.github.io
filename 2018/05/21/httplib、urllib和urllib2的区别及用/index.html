@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="httplib、urllib和urllib2," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="urllib和urllib2urllib 和urllib2都是接受URL请求的相关模块，但是urllib2可以接受一个Request类的实例来设置URL请求的headers，urllib仅可以接受URL，这意味着，你不可以伪装你的User Agent字符串等。urllib提供urlencode方法用来GET查询字符串的产生，而urllib2没有。这是为何urllib常和urllib2一起使用的原因">
+<meta name="keywords" content="httplib、urllib和urllib2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="httplib、urllib和urllib2的区别及用">
+<meta property="og:url" content="http://yoursite.com/2018/05/21/httplib、urllib和urllib2的区别及用/index.html">
+<meta property="og:site_name" content="不忘初心">
+<meta property="og:description" content="urllib和urllib2urllib 和urllib2都是接受URL请求的相关模块，但是urllib2可以接受一个Request类的实例来设置URL请求的headers，urllib仅可以接受URL，这意味着，你不可以伪装你的User Agent字符串等。urllib提供urlencode方法用来GET查询字符串的产生，而urllib2没有。这是为何urllib常和urllib2一起使用的原因">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-12T10:57:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="httplib、urllib和urllib2的区别及用">
+<meta name="twitter:description" content="urllib和urllib2urllib 和urllib2都是接受URL请求的相关模块，但是urllib2可以接受一个Request类的实例来设置URL请求的headers，urllib仅可以接受URL，这意味着，你不可以伪装你的User Agent字符串等。urllib提供urlencode方法用来GET查询字符串的产生，而urllib2没有。这是为何urllib常和urllib2一起使用的原因">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/21/httplib、urllib和urllib2的区别及用/"/>
+
+
+
+
+
+  <title>httplib、urllib和urllib2的区别及用 | 不忘初心</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">不忘初心</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/21/httplib、urllib和urllib2的区别及用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="oopscooper">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="不忘初心">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">httplib、urllib和urllib2的区别及用</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-21T11:38:57+08:00">
+                2018-05-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="urllib和urllib2"><a href="#urllib和urllib2" class="headerlink" title="urllib和urllib2"></a>urllib和urllib2</h1><p>urllib 和urllib2都是接受URL请求的相关模块，但是urllib2可以接受一个Request类的实例来设置URL请求的headers，urllib仅可以接受URL，这意味着，你不可以伪装你的User Agent字符串等。<br>urllib提供urlencode方法用来GET查询字符串的产生，而urllib2没有。这是为何urllib常和urllib2一起使用的原因。<br>目前的大部分http请求都是通过urllib2来访问的。  </p>
+<h2 id="1-urllib简单用法"><a href="#1-urllib简单用法" class="headerlink" title="1. urllib简单用法"></a>1. urllib简单用法</h2><h3 id="urllib-urlopen-url-data-proxies"><a href="#urllib-urlopen-url-data-proxies" class="headerlink" title="urllib.urlopen(url[, data[, proxies]]) :"></a>urllib.urlopen(url[, data[, proxies]]) :</h3><blockquote>
+<p>google = urllib.urlopen(‘<a href="http://www.google.com&#39;" target="_blank" rel="noopener">http://www.google.com&#39;</a>)<br>print ‘http header:/n’, google.info()<br>print ‘http status:’, google.getcode()<br>print ‘url:’, google.geturl()<br>for line in google: # 就像在操作本地文件<br>&ensp;&ensp;print line<br>google.close()  </p>
+</blockquote>
+<h2 id="2-urllib2简单用法"><a href="#2-urllib2简单用法" class="headerlink" title="2. urllib2简单用法"></a>2. urllib2简单用法</h2><h3 id="最简单的形式"><a href="#最简单的形式" class="headerlink" title="最简单的形式"></a>最简单的形式</h3><blockquote>
+<p>import urllib2<br>    response=urllib2.urlopen(‘<a href="http://www.douban.com&#39;，timeout" target="_blank" rel="noopener">http://www.douban.com&#39;，timeout</a> = 1) //超时设置<br>    html=response.read()</p>
+</blockquote>
+<h3 id="实际步骤："><a href="#实际步骤：" class="headerlink" title="实际步骤："></a>实际步骤：</h3><ul>
+<li>urllib2.Request()的功能是构造一个请求信息，返回的req就是一个构造好的请求</li>
+<li>urllib2.urlopen()的功能是发送刚刚构造好的请求req，并返回一个文件类的对象response，包括了所有的返回信息。</li>
+<li>通过response.read()可以读取到response里面的html，通过response.info()可以读到一些额外的信息。  </li>
+</ul>
+<p>代码如下：</p>
+<blockquote>
+<p>#!/usr/bin/env python<br>import urllib2<br>req = urllib2.Request(“<a href="http://www.douban.com&quot;" target="_blank" rel="noopener">http://www.douban.com&quot;</a>)<br>response = urllib2.urlopen(req)<br>html = response.read()<br>print html</p>
+</blockquote>
+<p>有时你会碰到，程序也对，但是服务器拒绝你的访问。这是为什么呢?问题出在请求中的头信息(header)。 有的服务端有洁癖，不喜欢程序来触摸它。这个时候你需要将你的程序伪装成浏览器来发出请求。请求的方式就包含在header中。<br>常见的情形：</p>
+<blockquote>
+<p>import urllib<br>import urllib2<br>url = ‘<a href="http://www.someserver.com/cgi-bin/register.cgi&#39;" target="_blank" rel="noopener">http://www.someserver.com/cgi-bin/register.cgi&#39;</a><br>user_agent = ‘Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)’   #将user_agent写入头信息<br>values = {‘name’ : ‘who’,’password’:’123456’}<br>headers = { ‘User-Agent’ : user_agent }<br>data = urllib.urlencode(values)<br>req = urllib2.Request(url, data, headers)<br>response = urllib2.urlopen(req)<br>the_page = response.read()  </p>
+</blockquote>
+<h2 id="3-urllib2带cookie的使用"><a href="#3-urllib2带cookie的使用" class="headerlink" title="3. urllib2带cookie的使用"></a>3. urllib2带cookie的使用</h2><blockquote>
+<p>#coding:utf-8<br>import urllib2,urllib<br>import cookielib<br>url = r’<a href="http://www.renren.com/ajaxLogin&#39;" target="_blank" rel="noopener">http://www.renren.com/ajaxLogin&#39;</a>  </p>
+</blockquote>
+<p>#创建一个cj的cookie的容器<br>cj = cookielib.CookieJar()<br>opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))  </p>
+<p>#将要POST出去的数据进行编码<br>data = urllib.urlencode({“email”:email,”password”:pass})<br>r = opener.open(url,data)<br>print cj</p>
+<h1 id="httplib"><a href="#httplib" class="headerlink" title="httplib"></a>httplib</h1><p>httplib实现了HTTP和HTTPS的客户端协议，一般不直接使用，在更高层的封装模块中（urllib,urllib2）使用了它的http实现。  </p>
+<h2 id="简单示例"><a href="#简单示例" class="headerlink" title="简单示例"></a>简单示例</h2><blockquote>
+<p>#!/usr/bin/env python    </p>
+</blockquote>
+<p>#-<em>- coding: utf-8 -</em>-<br>import httplib<br>import urllib<br>def sendhttp():<br>&ensp;&ensp;data = urllib.urlencode({‘@number’: 12524, ‘@type’: ‘issue’, ‘@action’: ‘show’})<br>&ensp;&ensp;headers = {“Content-type”: “application/x-www-form-urlencoded”,<br>               “Accept”: “text/plain”}<br>&ensp;&ensp;conn = httplib.HTTPConnection(‘bugs.python.org’)<br>&ensp;&ensp;conn.request(‘POST’, ‘/‘, data, headers)<br>&ensp;&ensp;httpres = conn.getresponse()<br>&ensp;&ensp;print httpres.status<br>&ensp;&ensp;print httpres.reason<br>&ensp;&ensp;print httpres.read()<br>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>&ensp;&ensp;sendhttp()  </p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/httplib、urllib和urllib2/" rel="tag"># httplib、urllib和urllib2</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/21/eval/" rel="next" title="eval()">
+                <i class="fa fa-chevron-left"></i> eval()
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/21/module安装方法/" rel="prev" title="module安装方法">
+                module安装方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">oopscooper</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">63</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#urllib和urllib2"><span class="nav-number">1.</span> <span class="nav-text">urllib和urllib2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-urllib简单用法"><span class="nav-number">1.1.</span> <span class="nav-text">1. urllib简单用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#urllib-urlopen-url-data-proxies"><span class="nav-number">1.1.1.</span> <span class="nav-text">urllib.urlopen(url[, data[, proxies]]) :</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-urllib2简单用法"><span class="nav-number">1.2.</span> <span class="nav-text">2. urllib2简单用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最简单的形式"><span class="nav-number">1.2.1.</span> <span class="nav-text">最简单的形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实际步骤："><span class="nav-number">1.2.2.</span> <span class="nav-text">实际步骤：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-urllib2带cookie的使用"><span class="nav-number">1.3.</span> <span class="nav-text">3. urllib2带cookie的使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#httplib"><span class="nav-number">2.</span> <span class="nav-text">httplib</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简单示例"><span class="nav-number">2.1.</span> <span class="nav-text">简单示例</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">oopscooper</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

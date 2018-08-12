@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1. 更换电脑后，如何更快的搭建好环境，直接写blog？参考知乎上的教程，有两种方案：    方案一：代码分为源文件和生成的静态文件。所有文件公用一个github的repo，创建分支 hexo 。&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;源文件也就是source、theme、db和配置文件等，提交到分支 hexo 上。&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;静态文件也就是最后生">
+<meta property="og:type" content="article">
+<meta property="og:title" content="更换电脑后配置">
+<meta property="og:url" content="http://yoursite.com/2018/05/22/更换电脑后如何写blog/index.html">
+<meta property="og:site_name" content="不忘初心">
+<meta property="og:description" content="1. 更换电脑后，如何更快的搭建好环境，直接写blog？参考知乎上的教程，有两种方案：    方案一：代码分为源文件和生成的静态文件。所有文件公用一个github的repo，创建分支 hexo 。&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;源文件也就是source、theme、db和配置文件等，提交到分支 hexo 上。&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;静态文件也就是最后生">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/images/machine.png">
+<meta property="og:updated_time" content="2018-08-12T11:39:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="更换电脑后配置">
+<meta name="twitter:description" content="1. 更换电脑后，如何更快的搭建好环境，直接写blog？参考知乎上的教程，有两种方案：    方案一：代码分为源文件和生成的静态文件。所有文件公用一个github的repo，创建分支 hexo 。&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;源文件也就是source、theme、db和配置文件等，提交到分支 hexo 上。&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;静态文件也就是最后生">
+<meta name="twitter:image" content="http://yoursite.com/images/machine.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/22/更换电脑后如何写blog/"/>
+
+
+
+
+
+  <title>更换电脑后配置 | 不忘初心</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">不忘初心</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/22/更换电脑后如何写blog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="oopscooper">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="不忘初心">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">更换电脑后配置</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-22T15:24:31+08:00">
+                2018-05-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/next/" itemprop="url" rel="index">
+                    <span itemprop="name">next</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-更换电脑后，如何更快的搭建好环境，直接写blog？"><a href="#1-更换电脑后，如何更快的搭建好环境，直接写blog？" class="headerlink" title="1. 更换电脑后，如何更快的搭建好环境，直接写blog？"></a>1. 更换电脑后，如何更快的搭建好环境，直接写blog？</h2><p>参考知乎上的教程，有两种方案：  </p>
+<ul>
+<li>方案一：代码分为源文件和生成的静态文件。所有文件公用一个github的repo，创建分支 <em><code>hexo</code></em> 。<br>&ensp;&ensp;&ensp;&ensp;源文件也就是source、theme、db和配置文件等，提交到分支 <em><code>hexo</code></em> 上。<br>&ensp;&ensp;&ensp;&ensp;静态文件也就是最后生成public目录下的的html、images、js等文件，提交到 <em><code>master</code></em> 上。<br><img src="/images/machine.png" alt="">  </li>
+<li>方案二：用两个GitHub Repo，一个Repo放你Hexo的源文件（这里称之为Source Repo）<br>&ensp;&ensp;&ensp;&ensp;另一个Repo放Hexo生成出来的静态网站（这里称之为Content Repo）<br>&ensp;&ensp;&ensp;&ensp;然后使用AppVeyor做持续集成。每当需要更新博客，只需要更新Source Repo，AppVeyor会自动生成静态网站并push到Content Repo，一气呵成，版本控制完全由GitHub完成，也不需要手动deploy。<br>&ensp;&ensp;&ensp;&ensp;但是ci工具AppVeyor目前只支持linux和windows，目前我使用的是mac，暂时先不尝试。</li>
+<li>综上考虑，使用方案一，将本地的源文件上传到hexo分支。</li>
+</ul>
+<h2 id="2-继续写blog的最佳实践"><a href="#2-继续写blog的最佳实践" class="headerlink" title="2. 继续写blog的最佳实践"></a>2. 继续写blog的最佳实践</h2><ul>
+<li>git clone代码，切换到hexo分支</li>
+<li><p>执行hexo g，报错：<br>ERROR Local hexo not found in ~/blogs/hexo<br>ERROR Try running: ‘npm install hexo —save’</p>
+<p> <em><code>原因</code></em> : hexo是使用npm安装的，安装之后的文件保存在 <em><code>./node_modules</code></em> ，由于配置文件 <em><code>.gitignore</code></em> 中设置的是不上传目录 <em><code>./node_modules</code></em> 下的文件 ，所以hexo可执行文件在git clone的代码中是没有的，所以报错：该目录没有找到可以执行的hexo。</p>
+<blockquote>
+<p>.DS_Store<br> Thumbs.db<br> db.json<br> <em>.log<br> node_modules/<br> public/<br> .deploy</em>/</p>
+</blockquote>
+</li>
+<li><p>需要使用npm进行安装，<br>执行： npm install hexo   </p>
+</li>
+<li>再次执行hexo g，hexo s，能够正常访问本地blog。</li>
+<li>public目录也正确生成了。<br><em><code>切记</code></em> ：图片存放位置是hexo分支下的source/images中，执行hexo g之后，会自动存放到public下，在执行hexo d，会把public目录上传到git的master分支。</li>
+<li>最后在hexo分支下，上传source下新增的文件，也就是保存blog的源文件。<br>所以，总结上述过程，更换电脑之后，只需要在一个目录下，操作两个步骤：</li>
+<li>git clone，并且切换到hexo分支。</li>
+<li>依次执行下列指令：<br>npm install hexo  </li>
+</ul>
+<p>npm install、npm<br>install hexo-deployer-git（记得，不需要hexo init这条指令）</p>
+<h2 id="2-开发环境配置"><a href="#2-开发环境配置" class="headerlink" title="2. 开发环境配置"></a>2. 开发环境配置</h2><h2 id="3-必备软件"><a href="#3-必备软件" class="headerlink" title="3. 必备软件"></a>3. 必备软件</h2><ul>
+<li>git</li>
+<li>chrome</li>
+<li>xmind</li>
+<li>visual studio code</li>
+<li>pycharm</li>
+<li>jmeter</li>
+<li>charles</li>
+<li>securecrt</li>
+<li>beyond compare</li>
+<li>postman</li>
+<li></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/22/14站点排序/" rel="next" title="14站点排序">
+                <i class="fa fa-chevron-left"></i> 14站点排序
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/22/面试list/" rel="prev" title="面试list">
+                面试list <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">oopscooper</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">63</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-更换电脑后，如何更快的搭建好环境，直接写blog？"><span class="nav-number">1.</span> <span class="nav-text">1. 更换电脑后，如何更快的搭建好环境，直接写blog？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-继续写blog的最佳实践"><span class="nav-number">2.</span> <span class="nav-text">2. 继续写blog的最佳实践</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-开发环境配置"><span class="nav-number">3.</span> <span class="nav-text">2. 开发环境配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-必备软件"><span class="nav-number">4.</span> <span class="nav-text">3. 必备软件</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">oopscooper</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
