@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="AI 人工智能入门 深度学习," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="2019年3月16日上午10点，周六，天气晴，大太阳，收拾完毕后来到书店成功找到一个座位，开始读这本书。短短5页的前言，我已经开始有了困意。我怕我会睡着，读不完这本书，所以我冒着失眠的风险买了一杯咖啡，好，开始进入正文。    01 深度学习发展简史 机器学习（Machine Learning） 是涵盖深度学习的一个人工智能技术领是一项改变历史的技术。    人工智能领域已经分化为两个阵营：规则式">
+<meta name="keywords" content="AI 人工智能入门 深度学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="01AI·未来---李开复">
+<meta property="og:url" content="http://yoursite.com/2019/03/16/01AI未来/index.html">
+<meta property="og:site_name" content="不忘初心">
+<meta property="og:description" content="2019年3月16日上午10点，周六，天气晴，大太阳，收拾完毕后来到书店成功找到一个座位，开始读这本书。短短5页的前言，我已经开始有了困意。我怕我会睡着，读不完这本书，所以我冒着失眠的风险买了一杯咖啡，好，开始进入正文。    01 深度学习发展简史 机器学习（Machine Learning） 是涵盖深度学习的一个人工智能技术领是一项改变历史的技术。    人工智能领域已经分化为两个阵营：规则式">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/images/book/01AI.jpg">
+<meta property="og:updated_time" content="2019-03-16T13:47:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="01AI·未来---李开复">
+<meta name="twitter:description" content="2019年3月16日上午10点，周六，天气晴，大太阳，收拾完毕后来到书店成功找到一个座位，开始读这本书。短短5页的前言，我已经开始有了困意。我怕我会睡着，读不完这本书，所以我冒着失眠的风险买了一杯咖啡，好，开始进入正文。    01 深度学习发展简史 机器学习（Machine Learning） 是涵盖深度学习的一个人工智能技术领是一项改变历史的技术。    人工智能领域已经分化为两个阵营：规则式">
+<meta name="twitter:image" content="http://yoursite.com/images/book/01AI.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/16/01AI未来/"/>
+
+
+
+
+
+  <title>01AI·未来---李开复 | 不忘初心</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">不忘初心</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/16/01AI未来/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="oopscooper">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="不忘初心">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">01AI·未来---李开复</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-16T11:10:25+08:00">
+                2019-03-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/BOOK-01AI/" itemprop="url" rel="index">
+                    <span itemprop="name">BOOK-01AI</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>2019年3月16日上午10点，周六，天气晴，大太阳，收拾完毕后来到书店成功找到一个座位，开始读这本书。短短5页的前言，我已经开始有了困意。我怕我会睡着，读不完这本书，所以我冒着失眠的风险买了一杯咖啡，好，开始进入正文。<br><img src="/images/book/01AI.jpg" alt="">   </p>
+<h3 id="01-深度学习发展简史"><a href="#01-深度学习发展简史" class="headerlink" title="01 深度学习发展简史"></a>01 深度学习发展简史</h3><ul>
+<li><em><code>机器学习（Machine Learning）</code></em> 是涵盖深度学习的一个人工智能技术领是一项改变历史的技术。   </li>
+<li>人工智能领域已经分化为两个阵营：<em><code>规则式方法，神经网络方法</code></em>。<br>—规则式方法：又称为”符号式“系统，将相关领域的人类专家的智慧写入软件。用一系列写好的逻辑规则来教导计算机如何思考，如”若X，则Y“。适用于简单且定义明确的游戏，当可能选择或操作数大增时，行不通了。我可以简单立即为if else吗？😜<br>—神经网络方法：在机器上重建人脑。思路来源于动物智能的源头-动物脑部错综复杂的神经元网路，模仿人脑结构，构建类似生物神经元网络的结构来收发信息。不会给人工智能系统设定决策规则，而只是把某一现象（图片、国际象棋赛、语音等）的大量例子输入人工神经元网络， 让网络从这些数据中学习、识别规律，人的干预越少越好。很好奇神经元网络是什么模型😊  </li>
+<li>20世纪50年代-60年代，人工神经网络取得了让人振奋的成果，70年进入寒冬。 为什么？<em><code>神经网络需要大量的计算机运算能力&amp;数据，当时数据来源不多，运算能力也不强</code></em> 。 </li>
+<li>21世纪互联网的崛起带来了海量的数据：文本、图像、视频和点击、购买的数据等。由此带来一些复杂问题若要得出准确的结果，必须 <em><code>构建很多层的人工神经元</code></em>，到2010年期间，研究人员有了重大技术性突破，人工神经网络性能大增，有了新的名字- <em><code>深度学习</code></em>，重新回到聚光灯下，开始真正地应用在现实世界中：语音识别、翻译、图像识别、预测消费行为、辨别欺诈、无人车等。   <blockquote>
+<p>终于初步搞懂了人工智能、机器学习、深度学习、神经网络这几个概念之间的关系了。人工智能是一个研究/发展方向，就是想让机器有人类的智能，代替人工，方法就是机器学习（让机器去学习人类智能），如何学习呢？可以用规则式方法（复杂问题不适用）和神经网络方法（模拟动物大脑），复杂的神经网络又称为深度学习，应用领域例如语音识别、图像识别、无人车等。⛽️ </p>
+</blockquote>
+<h3 id="02-深度学习的内核"><a href="#02-深度学习的内核" class="headerlink" title="02 深度学习的内核"></a>02 深度学习的内核</h3></li>
+<li>算法使用了大量来自 <em><code>特定领域的数据</code></em>，为想要的结果作出最佳决策。方法是让系统使用这些输入的数据，训练自己识别数据和期望结果之间的关联性。算法可以运营找到的这些关联性所积累的庞大知识（很多是人类看不到或者觉得无关的），作出比人类更好的决策。   </li>
+<li><em><code>大量相关数据、强大算法、足够细化的领域以及明确的目标</code></em>，欠缺任何一个都无法成功。   </li>
+<li><em><code>狭义人工智能</code></em>-仅用于在特定领域能作出决策、预测和分类的人工智能应用。   </li>
+<li>最自然的应用领域是 <em><code>保险、贷款之类的金融业务</code></em>，因为借款人的相关数据非常多，而最优目标很明确。   <h3 id="03-谁能保持领先-中国的优势"><a href="#03-谁能保持领先-中国的优势" class="headerlink" title="03 谁能保持领先-中国的优势"></a>03 谁能保持领先-中国的优势</h3></li>
+<li>人工智能已经进入了实干时代，中国互联网产生的大数据远远超过学术研究积累半个多世纪的美国，加之中国互联网竞争激烈且残酷，迭代速度快，政府投入重视，未来一定会摆脱 <em><code>科技被殖民者</code></em> 的地位。   <h3 id="04-真正的危机"><a href="#04-真正的危机" class="headerlink" title="04 真正的危机"></a>04 真正的危机</h3></li>
+<li>严重失业，如会计师、流水线作业员、仓储作业员、放射科一生等。   </li>
+<li>经济结构造成冲击，导致财富分配不均，庞大财富将落入新崛起的人工智能巨擎手中。   </li>
+<li>赢家通吃状态，越好的公司将生产出越好的商品。数字产品与服务占消费市场份额的比例将会持续扩大，营收和获利越来越集中在少数几家公司。    </li>
+<li>就业市场和整个社会的不稳定，背后是更加个体性质的人性危机—个体丧失了人生目的。<h3 id="05-中国和西方互联网产品的联系和区别"><a href="#05-中国和西方互联网产品的联系和区别" class="headerlink" title="05 中国和西方互联网产品的联系和区别"></a>05 中国和西方互联网产品的联系和区别</h3></li>
+<li>美国注重在于创新，以创造出世界上独一无二的产品为荣，致力于作出全球通用的产品，以复制和剽窃为耻。   </li>
+<li>中国进入比较晚，市场需求大于一切，目前的著名互联网公司都是从模拟起家，认真仔细得研究美国产品的运营模式和各种设计细节，并且没有停止创新的脚步，大力推进本地化，得出中国用户的喜好习惯，更加熟悉用户，产品随之越来越被中国用户喜欢，反观美国产品进入中国的过程中，拒绝本地化和了解中国用户，慢慢退出中国，所以不能说完全是因为中国政府管控。   </li>
+<li>中国几大巨头公司的战略，投资中国本土公司，投资印度等外国的本土公司，联合围剿美国公司，最后把外国的本土公司收购，或者将自己的产品进行定制化输出到这些发展中国家。O2O场景。   </li>
+<li>未来，中国在人工智能领域将与美国55分，不会形成三国鼎立。 <blockquote>
+<p>这部分内容多次带着赞扬的口吻提到美团王兴，着重说明王兴是如何连续几次创业，并从中总结经验的历程。马云、周鸿伟、马化腾对于公司/市场竞争意识和反击意识是多么敏锐，市场竞争是多么残酷。</p>
+</blockquote>
+<h3 id="06-人工智能发展的四波浪潮"><a href="#06-人工智能发展的四波浪潮" class="headerlink" title="06 人工智能发展的四波浪潮"></a>06 人工智能发展的四波浪潮</h3></li>
+<li>第一波—互联网智能化，从互联网崛起到目前的这段时期，人工智能已经代替一部分工作岗位，例如新闻编辑、报道。   </li>
+<li>第二波—商业智能化，更多行业的商业应用结合。炒掉银行客户经理、算法诊所、法庭助手，人工智能系统拥有更多信息进而得出更多结论。   </li>
+<li>第三波—实体世界智能化，OMO世界，硬件设备都更了解人类、给出消费建议、教育流程的改动和效率提升，例如小米目前的硬件智能化。   </li>
+<li>第四波—自主智能化，硬件设备能自主组队，完成协作。人更加不用实际工作，草莓采摘机器人和机器甲虫。  <blockquote>
+<p>对于国内公司，今日头条提到的次数比较多，使用人工智能算法落地的场景比较多。判断一个行业未来发展的前景，如何进行一个判断。 </p>
+</blockquote>
+<h3 id="07-乌托邦-反乌托邦"><a href="#07-乌托邦-反乌托邦" class="headerlink" title="07 乌托邦/反乌托邦"></a>07 乌托邦/反乌托邦</h3></li>
+<li>真正的人工智能危机   </li>
+<li>担心算法还是担心机器人</li>
+<li>导致不平等</li>
+<li>个人危机感<blockquote>
+<p>这部分主要是展开了一些研究学者对于人工智能未来的不同看法和观点，站的高度都比较高，观点犀利且很有远见，有世界顶尖经济从业者，有科幻作家，有政府分析报告等，不能很好很快地理解和吸收。</p>
+</blockquote>
+<h3 id="08-与死亡擦身而过带来的反思"><a href="#08-与死亡擦身而过带来的反思" class="headerlink" title="08 与死亡擦身而过带来的反思"></a>08 与死亡擦身而过带来的反思</h3></li>
+<li>理工男做事情都是按照最优算法去执行，取得利益最大化。</li>
+<li>人生最有价值的事情是与人分享爱，呵呵。<blockquote>
+<p>不禁反思自己，生活和工作也是按照这样一种理科思维去做事的。回想起来，确实有点乏味，有些遗憾，但是谁也说不准哪种生活方法/生活准则是最好的，适合自己的且自己擅长的喜欢的才是最好的，不是吗？🤔️</p>
+</blockquote>
+<h3 id="09-人类与人工智能共存"><a href="#09-人类与人工智能共存" class="headerlink" title="09 人类与人工智能共存"></a>09 人类与人工智能共存</h3><blockquote>
+<p>人类必然会失去一些工作机会和岗位，但同时有了更多选择，再培训、重分配、减时间。这些还都是未来式，可以阅读一些类似的文章，展开思考。</p>
+</blockquote>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/AI-人工智能入门-深度学习/" rel="tag"># AI 人工智能入门 深度学习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/30/02微服务模式下API测试/" rel="next" title="02微服务模式下API测试">
+                <i class="fa fa-chevron-left"></i> 02微服务模式下API测试
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">oopscooper</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">64</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">74</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#01-深度学习发展简史"><span class="nav-number">1.</span> <span class="nav-text">01 深度学习发展简史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#02-深度学习的内核"><span class="nav-number">2.</span> <span class="nav-text">02 深度学习的内核</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#03-谁能保持领先-中国的优势"><span class="nav-number">3.</span> <span class="nav-text">03 谁能保持领先-中国的优势</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#04-真正的危机"><span class="nav-number">4.</span> <span class="nav-text">04 真正的危机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#05-中国和西方互联网产品的联系和区别"><span class="nav-number">5.</span> <span class="nav-text">05 中国和西方互联网产品的联系和区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#06-人工智能发展的四波浪潮"><span class="nav-number">6.</span> <span class="nav-text">06 人工智能发展的四波浪潮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#07-乌托邦-反乌托邦"><span class="nav-number">7.</span> <span class="nav-text">07 乌托邦/反乌托邦</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#08-与死亡擦身而过带来的反思"><span class="nav-number">8.</span> <span class="nav-text">08 与死亡擦身而过带来的反思</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#09-人类与人工智能共存"><span class="nav-number">9.</span> <span class="nav-text">09 人类与人工智能共存</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">oopscooper</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
